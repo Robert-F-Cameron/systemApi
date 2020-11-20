@@ -15,14 +15,15 @@ app.use(
 app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API' })
 })
+ 
 
 
+app.get('/systems', db.getSystems)
+app.get('/system/:id', db.getSystemsById)
+app.get('/system/:id/tickets', db.getSystemTickets)
+app.get('/system/:id/schedule', db.getSystemSchedule)
+app.post('/system', db.addSystem)
+app.delete('/system/:id', db.removeSystem)
 
-app.get('/systems', db.getEmails)
-app.get('/system/:id', db.getEmailsById)
-app.get('/system/:id/tickets', db.getEmailsById)
-app.get('/system/:id/schedule', db.getEmailsById)
-app.post('/system', db.createEmail)
-app.delete('/system', db.createEmail)
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
