@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
 const cors = require('cors');
-const port = 3004
+const port = 8082
 
 app.use(cors())
 app.options('*', cors())
@@ -16,7 +16,7 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' })
+  response.json({ info: 'Put in an endpoint silly!' })
 })
  
 

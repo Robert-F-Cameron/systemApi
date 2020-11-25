@@ -11,5 +11,6 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 3004
+EXPOSE 8082
+
 CMD [ "node", "statusApi.js" ]
