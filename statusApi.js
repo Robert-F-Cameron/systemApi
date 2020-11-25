@@ -3,8 +3,11 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const db = require('./queries')
+const cors = require('cors');
 const port = 3004
 
+app.use(cors())
+app.options('*', cors())
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -19,6 +22,7 @@ app.get('/', (request, response) => {
 
 
 app.get('/systems', db.getSystems)
+app.get('/workcenters', db.getWorkcenters)
 app.get('/system/:id', db.getSystemsById)
 app.get('/system/:id/tickets', db.getSystemTickets)
 app.get('/system/:id/schedule', db.getSystemSchedule)
